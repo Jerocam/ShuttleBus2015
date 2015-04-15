@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ShuttleBus2015</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="place_array">
+        <item> Choose the Shuttle Stop</item>
+        <item>MSSD Circle</item>
+        <item>KDES Circle</item>
+        <item>Benson Circle</item>
+        <item>Kellogg</item>
+        <item>NoMa-Gallaudet U</item>
+        <item>Union Station</item>
+    </string-array>
+</resources>
