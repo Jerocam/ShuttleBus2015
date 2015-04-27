@@ -5,20 +5,81 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Spinner;
+import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.content.res.TypedArray;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.view.View;
+
 
 public class MainActivity extends ActionBarActivity
 
 {
+    private ImageView image;
+    private ImageView image2;
+    private String[] states;
+    private Spinner spinner;
+    private Spinner spinner2;
+    private TypedArray imgs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        states = getResources().getStringArray(R.array.place_array);
+
+        imgs = getResources().obtainTypedArray(R.array.places_list);
+
+        image = (ImageView) findViewById(R.id.imageView);
+
+        spinner = (Spinner) findViewById(R.id.from);
+
+        /*image2 = (ImageView) findViewById (R.id.imageView2);
+        spinner2 = (Spinner) findViewById (R.id.to);
+        */
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, states);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        /*ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String> (this, android.R.layout.simple_spinner_item, states);
+        dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        */
+        spinner.setAdapter(dataAdapter);
+        spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                image.setImageResource(imgs.getResourceId(spinner.getSelectedItemPosition(), -1));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
     }
+}
+  /*          spinner2.setAdapter(dataAdapter2);
+            spinner2.setOnItemSelectedListener (new OnItemSelectedListener () {
 
 
-    @Override
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    image2.setImageResource(imgs.getResourceId(spinner2.getSelectedItemPosition(), -1));
+                }
+
+                @Override
+        public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
+       }
+
+   }
+*/
+
+
+ /*    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -27,9 +88,6 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -40,14 +98,5 @@ public class MainActivity extends ActionBarActivity
         return super.onOptionsItemSelected(item);
     }
 
-   /* private Spinner placeSpinner;
-
-    Spinner from = (Spinner) findViewById (R.id.from);
-
-    placeSpinner.setOnItemSelectedListener(this);
-
-    ArrayAdapter<CharSequence> placeAdapter = ArrayAdapter.createFromResource(this,R.array.place_array,
-            android.R.layout.simple_spinner_dropdown_item);
-    from.setAdapter(placeAdapter);
-*/
 }
+*/

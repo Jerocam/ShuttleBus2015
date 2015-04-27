@@ -10,4 +10,14 @@
         <item>NoMa-Gallaudet U</item>
         <item>Union Station</item>
     </string-array>
+
+    <integer-array name="places_list">
+        <item>@drawable/black</item>
+        <item>@drawable/mssd</item>
+        <item>@drawable/kdes</item>
+        <item>@drawable/benson</item>
+        <item>@drawable/kellogg</item>
+        <item>@drawable/noma</item>
+        <item>@drawable/ustation</item>
+    </integer-array>
 </resources>
