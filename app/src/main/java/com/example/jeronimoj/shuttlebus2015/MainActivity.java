@@ -11,6 +11,7 @@ import android.content.res.TypedArray;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.view.View;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity
@@ -22,6 +23,7 @@ public class MainActivity extends ActionBarActivity
     private Spinner spinner;
     private Spinner spinner2;
     private TypedArray imgs;
+    private TextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,8 @@ public class MainActivity extends ActionBarActivity
         states = getResources().getStringArray(R.array.place_array);
 
         imgs = getResources().obtainTypedArray(R.array.places_list);
+
+        text = (TextView) findViewById (R.id.testing);
 
         image = (ImageView) findViewById(R.id.imageView);
         image2 = (ImageView) findViewById(R.id.imageView2);
@@ -53,10 +57,14 @@ public class MainActivity extends ActionBarActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 image.setImageResource(imgs.getResourceId(spinner.getSelectedItemPosition(), -1));
+
+                String item = parent.getItemAtPosition(position).toString();
+                text.setText(item);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
+                text.setText("");
             }
         });
 

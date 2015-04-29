@@ -59,21 +59,23 @@
         android:layout_column="1"
         android:src="@drawable/kellogg" />
 
-    <TimePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/timePicker"
-        android:layout_row="4"
-        android:layout_column="0"
-        android:timePickerMode="spinner" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search Now"
         android:id="@+id/button"
         android:layout_row="5"
-        android:layout_column="0" /><![CDATA[
+        android:layout_column="0" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/testing"
+        android:layout_row="4"
+        android:layout_column="0"
+        android:layout_marginTop="10dp" /><![CDATA[
 
     />
 
