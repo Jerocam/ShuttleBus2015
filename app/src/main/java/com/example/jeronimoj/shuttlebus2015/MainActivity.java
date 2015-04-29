@@ -33,19 +33,20 @@ public class MainActivity extends ActionBarActivity
         imgs = getResources().obtainTypedArray(R.array.places_list);
 
         image = (ImageView) findViewById(R.id.imageView);
+        image2 = (ImageView) findViewById(R.id.imageView2);
 
         spinner = (Spinner) findViewById(R.id.from);
+        spinner2 = (Spinner) findViewById(R.id.to);
 
-        /*image2 = (ImageView) findViewById (R.id.imageView2);
-        spinner2 = (Spinner) findViewById (R.id.to);
-        */
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, states);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        /*ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String> (this, android.R.layout.simple_spinner_item, states);
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, states);
         dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        */
+
         spinner.setAdapter(dataAdapter);
+        spinner2.setAdapter(dataAdapter2);
+
         spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 
@@ -58,25 +59,23 @@ public class MainActivity extends ActionBarActivity
             public void onNothingSelected(AdapterView<?> arg0) {
             }
         });
-    }
-}
-  /*          spinner2.setAdapter(dataAdapter2);
-            spinner2.setOnItemSelectedListener (new OnItemSelectedListener () {
 
 
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    image2.setImageResource(imgs.getResourceId(spinner2.getSelectedItemPosition(), -1));
-                }
+        spinner2.setOnItemSelectedListener(new OnItemSelectedListener() {
 
-                @Override
-        public void onNothingSelected(AdapterView<?> arg0) {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                image2.setImageResource(imgs.getResourceId(spinner2.getSelectedItemPosition(), -1));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
             }
         });
-       }
 
-   }
-*/
+    }
+    }
 
 
  /*    @Override
